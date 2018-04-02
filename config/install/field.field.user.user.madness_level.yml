@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.madness_level
+  module:
+    - options
+    - user
+id: user.user.madness_level
+field_name: madness_level
+entity_type: user
+bundle: user
+label: 'Madness Level'
+description: 'On a scale of 1-10, what is the depth of this user''s madness?'
+required: true
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings: {  }
+field_type: list_integer
