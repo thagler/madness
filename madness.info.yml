@@ -1,0 +1,5 @@
+name: Madness
+description: 'Keep track of the madness of your user base.'
+package: User
+type: module
+core: 8.x
