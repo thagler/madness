@@ -1,0 +1,5 @@
+madness.settings_form:
+  title: 'Configure the Madness!'
+  route_name: madness.settings_form
+  description: 'Configure how you would like to monitor the madness inherent in your followe…er, uers.'
+  parent: user.admin_index
