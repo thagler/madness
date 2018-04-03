@@ -25,16 +25,16 @@ class MadnessCommands extends DrushCommands {
    *   An associative array of options whose values come from cli, aliases, config, etc.
    * 
    * @option count
-   *   The number of users to create (max 10)
+   *   The number of users to create (max 11)
    * @usage drush mcu
-   *   Generate Madness test users (10 by defaut).
+   *   Generate Madness test users (11 by defaut).
    * @usage drush mec --count=6
    *   Generate 6 Madness test users
    *
    * @command madness:create-users
    * @aliases mcu,madness-create-users
    */
-  public function createUsers(array $options = ['count' => 10]) {
+  public function createUsers(array $options = ['count' => 11]) {
     $count = $options['count'];
 
     $users = $this->getUserData($count);
@@ -124,6 +124,11 @@ class MadnessCommands extends DrushCommands {
       [
         'name' => 'Eliza Orne',
         'mail' => 'elizao@innsmouth.org',
+        'pass' => $this->generateRandomPassword(),
+      ],
+      [
+        'name' => 'Doctor Juan Muñoz',
+        'mail' => 'dr.chill@yahoo.com',
         'pass' => $this->generateRandomPassword(),
       ],
     ];
