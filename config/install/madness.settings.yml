@@ -1,0 +1,3 @@
+increase_on_event_cron: 0
+increase_on_event_content: 1
+decrease_on_event_content: 1
