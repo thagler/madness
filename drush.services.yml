@@ -1,0 +1,5 @@
+services:
+  madness.commands:
+    class: \Drupal\madness\Commands\MadnessCommands
+    tags:
+      - { name: drush.command }
