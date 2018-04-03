@@ -35,8 +35,6 @@ class MadnessCommands extends DrushCommands {
    * @aliases mcu,madness-create-users
    */
   public function createUsers(array $options = ['count' => 10]) {
-    // See bottom of https://weitzman.github.io/blog/port-to-drush9 for details on what to change when porting a
-    // legacy command.
     $count = $options['count'];
 
     $users = $this->getUserData($count);
