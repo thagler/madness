@@ -93,7 +93,7 @@ class MadnessLevels {
 
   private function sanityCheck() {
     // The lower the sanity check value, the easier it is to remain sane.
-    $current_sanity_check = 6;
+    $current_sanity_check = 2;
     $sanity_roll = rand(1, 20);
     return $sanity_roll >= $current_sanity_check;
   }

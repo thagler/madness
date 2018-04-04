@@ -1,6 +1,7 @@
 services:
   madness.event_subscriber:
-    class: Drupal\madness\EventSubscriber\MadnessEventSubscriber
+    class: Drupal\madness\MadnessEventSubscriber
+    arguments: ['@event_dispatcher', '@logger.factory']
     tags:
       - { name: 'event_subscriber' }
   madness.levels:
