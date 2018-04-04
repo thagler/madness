@@ -1,0 +1,7 @@
+services:
+  madness.event_subscriber:
+    class: Drupal\madness\EventSubscriber\MadnessEventSubscriber
+    tags:
+      - { name: 'event_subscriber' }
+  madness.levels:
+    class: Drupal\madness\MadnessLevels
