@@ -31,7 +31,7 @@ function madness_node_update(EntityInterface $node) {
 /**
  * 
  */
-function madness_cron(EntityInterface $node) {
+function madness_cron() {
   if ((int) \Drupal::config('madness.settings')->get('increase_on_event_cron')) {
     $users = \Drupal::service('madness.levels')->increaseMadness();
   }
