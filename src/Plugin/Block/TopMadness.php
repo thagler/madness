@@ -21,28 +21,20 @@ use Drupal\Core\Link;
 class TopMadness extends BlockBase implements BlockPluginInterface {
 
   // Set a default value to use for number of users to display.
-  private $user_count = 5;
+  protected $user_count = 5;
 
   // Set a default value for linking to user pages or not.
-  private $link = FALSE;
+  protected $link = FALSE;
 
   /**
    * {@inheritdoc}
    */
   public function build() {
     $config = $this->getConfiguration();
-    $config['user_count'] = $config['user_count'] ?: $this->user_count;
+    $user_count = $config['user_count'] ?: $this->user_count;
 
-    // Query for user entities sorted by the madness_level field.
-    $query = \Drupal::entityQuery('user')
-      ->condition('status', 1)
-      ->condition('uid', 1, '>')
-      ->condition('madness_level', 0, '>')
-      ->sort('madness_level', 'DESC')
-      ->range(0, $config['user_count']);
-
-    // Get User IDs.
-    $users = User::loadMultiple($query->execute());
+    // Get user entities from the Madness service.
+    $users = \Drupal::service('madness.levels')->getUsers($user_count);
 
     // Load User entities and get the values we want to display.
     $user_data = [];
