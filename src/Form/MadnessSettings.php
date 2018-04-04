@@ -41,6 +41,13 @@ class MadnessSettings extends ConfigFormBase {
       '#markup' => $this->t('<p>Users can be driven mad from multiple events. Choose the events that you would like to possibly increment each users\'s maddness every time that even occurs.</p>'),
     ];
 
+    $form['madness_increase']['increase_on_every_request'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Every page load'),
+      '#description' => $this->t('Cause a few random users to lose sanity on every page load. Warning: This is incredibly insane! (This will not happen on admin pages)'),
+      '#default_value' => $config->get('increase_on_every_request'),
+    ];
+
     $form['madness_increase']['increase_on_event_cron'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Cron'),
@@ -81,6 +88,7 @@ class MadnessSettings extends ConfigFormBase {
     parent::submitForm($form, $form_state);
 
     $this->config('madness.settings')
+      ->set('increase_on_every_request', $form_state->getValue('increase_on_every_request'))
       ->set('increase_on_event_cron', $form_state->getValue('increase_on_event_cron'))
       ->set('increase_on_event_content', $form_state->getValue('increase_on_event_content'))
       ->set('decrease_on_event_content', $form_state->getValue('decrease_on_event_content'))
