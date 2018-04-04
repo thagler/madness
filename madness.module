@@ -15,7 +15,7 @@ function madness_query_sort_by_random_alter(AlterableInterface $query) {
  */
 function madness_node_insert(EntityInterface $node) {
   if ((int) \Drupal::config('madness.settings')->get('increase_on_event_content')) {
-    // $users = \Drupal::service('madness.levels')->increaseMadness();
+    $users = \Drupal::service('madness.levels')->increaseMadness();
   }
 }
 
@@ -24,7 +24,7 @@ function madness_node_insert(EntityInterface $node) {
  */
 function madness_node_update(EntityInterface $node) {
   if ((int) \Drupal::config('madness.settings')->get('increase_on_event_content')) {
-    // $users = \Drupal::service('madness.levels')->increaseMadness();
+    $users = \Drupal::service('madness.levels')->increaseMadness();
   }
 }
 
